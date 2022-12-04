@@ -23,7 +23,7 @@ hadoop fs -mkdir /inp              use 2 times
 
 //now move data.txt file to the inp folder
 
-hadoop fs -put d:/data.txt /tnp
+hadoop fs -put d:/data.txt /inp
 
 //lets check the moved file
 
