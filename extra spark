@@ -1,0 +1,224 @@
+//1. map()- Return a new RDD by applying a function to each element of this
+RDD
+//map(func)
+
+val x = sc.parallelize(Array(&quot;b&quot;, &quot;a&quot;, &quot;c&quot;))
+val y = x.map(z =&gt; (z,1))
+println(x.collect().mkString(&quot;, &quot;))
+println(y.collect().mkString(&quot;, &quot;))
+
+//2. flatmap()- Return a new RDD by first applying a function to all elements of
+this RDD, and then flattening the results
+//flatMap(func)
+
+val x = sc.parallelize(Array(1,2,3))
+val y = x.flatMap(n =&gt; Array(n, n*100, 42))
+println(x.collect().mkString(&quot;, &quot;))
+println(y.collect().mkString(&quot;, &quot;))
+
+//3. mapPartitions()- Return a new RDD by applying a function to each partition
+of this RDD
+//similar to map
+//mapPartitions(func)
+
+val parallel = sc.parallelize(1 to 9, 3)
+parallel.mapPartitions( x =&gt; List(x.next).iterator).collect
+
+//union()- Return a new RDD containing all items from two original RDDs.
+Duplicates are not culled
+//union(otherDataset)
+//glom() flattens elements on the same partition
+
+val x= sc.parallelize(Array(1,2,3), 2)
+val y= sc.parallelize(Array(3,4), 1)
+val z= x.union(y)
+val zOut= z.glom().collect()
+val zout1= z.collect()
+
+
+//distinct()- Return a new RDD containing distinct items from the original RDD
+(omitting all duplicates)
+//distinct([numPartitions]))
+
+val x= sc.parallelize(Array(1,2,3,3,4))
+val y= x.distinct()
+println(y.collect().mkString(&quot;, &quot;))
+
+//intersection() : Returns elements that are common b/w both RDDs. Also
+removed Duplicates
+//intersection(otherDataset)
+
+val x = sc.parallelize(List(&quot;lion&quot;, &quot;tiger&quot;, &quot;tiger&quot;, &quot;peacock&quot;, &quot;horse&quot;))
+val y = sc.parallelize(List(&quot;lion&quot;, &quot;tiger&quot;))
+x.intersection(y).collect()
+
+//subtract()- Returns only elements that are present in the first RDD
+
+val x = sc.parallelize(List(&quot;lion&quot;, &quot;tiger&quot;, &quot;tiger&quot;, &quot;peacock&quot;, &quot;horse&quot;))
+val y = sc.parallelize(List(&quot;lion&quot;, &quot;tiger&quot;))
+x.subtract(y).collect()
+
+//cartesian()- Provides cartesian product b/w 2 RDDs
+//cartesian(otherDataset)
+
+val x = sc.parallelize(List(&quot;lion&quot;, &quot;tiger&quot;, &quot;tiger&quot;, &quot;peacock&quot;, &quot;horse&quot;))
+val y = sc.parallelize(List(&quot;lion&quot;, &quot;tiger&quot;))
+x.cartesian(y).collect()
+
+
+
+
+Other Operators
+//filter
+//filter(func)- Return a new dataset formed by selecting those elements of the
+source on which func returns true.
+
+val x = sc.parallelize(Array(1,2,3))
+val y = x.filter(n =&gt; n%2 == 1)
+println(x.collect().mkString(&quot;, &quot;))
+println(y.collect().mkString(&quot;, &quot;))
+
+//groupby
+val x= sc.parallelize(Array(&quot;John&quot;, &quot;Fred&quot;, &quot;Anna&quot;, &quot;James&quot;))
+val y= x.groupBy(w =&gt; w.charAt(0))
+println(x.collect().mkString(&quot;, &quot;))
+println(y.collect().mkString(&quot;, &quot;))
+
+//toDebugString
+val x = sc.parallelize(List(&quot;This is a word&quot;, &quot;This is another word&quot;), 7)
+val y = x.flatMap(line =&gt; line.split(&quot; &quot;))
+val z = y.map ( word =&gt; (word, 1) )
+val a = z.reduceByKey ( (x, y) =&gt; x + y )
+a.toDebugString
+a.collect()
+
+RDD Functions
+//groupbykey - When called on a dataset of (K, V) pairs, returns a dataset of (K,
+Iterable&lt;V&gt;) pairs
+//groupByKey([numPartitions])
+
+val x= sc.parallelize(Array(('B',5),('B',4),('A',3),('A',2),('A',1)))
+val y= x.groupByKey()
+println(x.collect().mkString(","))
+println(y.collect().mkString(","))
+
+
+//keyBy- Create a Pair RDD, forming one pair for each item in the original RDD.
+The pair’s key is calculated from the value via a user-supplied function.
+
+val x= sc.parallelize(Array(&quot;John&quot;, &quot;Fred&quot;, &quot;Anna&quot;, &quot;James&quot;))
+val y= x.keyBy(w =&gt; w.charAt(0))
+println(x.collect().mkString(&quot;, &quot;))
+println(y.collect().mkString(&quot;, &quot;))
+
+
+//join - Return a new RDD containing all pairs of elements having the same key in the
+original RDDs
+//join(otherDataset, [numPartitions])
+
+val x= sc.parallelize(Seq((&quot;math&quot;, 55),(&quot;math&quot;, 56),(&quot;english&quot;, 57),(&quot;english&quot;,
+58),(&quot;science&quot;, 59),(&quot;science&quot;, 54)))
+val y= sc.parallelize(Seq((&quot;math&quot;, 60),(&quot;math&quot;, 65),(&quot;science&quot;, 61),(&quot;science&quot;,
+62),(&quot;history&quot;, 63),(&quot;history&quot;, 64)))
+val z= x.join(y)
+println(z.collect().mkString(&quot;, &quot;))
+
+//leftOuterJoin()
+val x= sc.parallelize(Seq((&quot;math&quot;, 55),(&quot;math&quot;, 56),(&quot;english&quot;, 57),(&quot;english&quot;,
+58),(&quot;science&quot;, 59),(&quot;science&quot;, 54)))
+val y= sc.parallelize(Seq((&quot;math&quot;, 60),(&quot;math&quot;, 65),(&quot;science&quot;, 61),(&quot;science&quot;,
+62),(&quot;history&quot;, 63),(&quot;history&quot;, 64)))
+val z= x.leftOuterJoin(y)
+println(z.collect().mkString(&quot;, &quot;))
+
+//rightOuterJoin()
+val x= sc.parallelize(Seq((&quot;math&quot;, 55),(&quot;math&quot;, 56),(&quot;english&quot;, 57),(&quot;english&quot;,
+58),(&quot;science&quot;, 59),(&quot;science&quot;, 54)))
+val y= sc.parallelize(Seq((&quot;math&quot;, 60),(&quot;math&quot;, 65),(&quot;science&quot;, 61),(&quot;science&quot;,
+62),(&quot;history&quot;, 63),(&quot;history&quot;, 64)))
+val z= x.rightOuterJoin(y)
+println(z.collect().mkString(&quot;, &quot;))
+
+//cogroup - Multiple Pair RDDs can be combined using cogroup()
+//cogroup(otherDataset, [numPartitions])
+val x= sc.parallelize(Array((&quot;a&quot;, 1), (&quot;b&quot;, 2)))
+val y= sc.parallelize(Array((&quot;a&quot;, 3), (&quot;a&quot;, 4), (&quot;b&quot;, 5)))
+val z= x.cogroup(y)
+println(z.collect().mkString(&quot;, &quot;))
+
+
+Sorting
+//sortByKey()- part of OrderedRDDFunctions that works on Key/Value pairs.
+
+//sortByKey([ascending], [numPartitions])
+val x= sc.parallelize(Seq((&quot;math&quot;, 55),(&quot;math&quot;, 56),(&quot;english&quot;, 57),(&quot;english&quot;,
+58),(&quot;science&quot;, 59),(&quot;science&quot;, 54)))
+x.sortByKey().collect()
+
+Partitioning
+//COALESCE - Return a new RDD which is reduced to a smaller number of
+partitions
+//coalesce(numPartitions)
+val x= sc.parallelize(Array(1, 2, 3, 4, 5), 3)
+val y= x.coalesce(2)
+val xOut= x.glom().collect()
+val yOut= y.glom().collect()
+
+val xOut1= x.collect()
+val yOut2= y.collect()
+
+//zip - Return a new RDD containing pairs whose key is the item in the original
+RDD, and whose value is that item’s corresponding element (same partition,
+same index) in a second RDD
+// zip(otherRDD)
+
+val x= sc.parallelize(Array(1,2,3))
+val y= x.map(n=&gt;n*n)
+val z= x.zip(y)
+println(z.collect().mkString(&quot;, &quot;))
+
+ACTIONS 
+// getnumpartitions - Return the number of partitions in RDD
+val x= sc.parallelize(Array(1,2,3), 2)
+val y= x.partitions.size
+val xOut= x.glom().collect()
+println(y)
+
+
+//collect - Return all items in the RDD to the driver in a single list
+val x= sc.parallelize(Array(1,2,3), 2)
+val y= x.collect()
+val xOut= x.glom().collect()
+println(y)
+
+//reduce - Aggregate all the elements of the RDD by applying a user function
+pairwise to elements and partial results, and returns a result to the driver
+//reduce(func)
+val x= sc.parallelize(Array(1,2,3,4))
+val y= x.reduce((a,b) =&gt; a+b)
+println(x.collect.mkString(&quot;, &quot;))
+println(y)
+
+//max - Return the maximum item in the RDD
+val x= sc.parallelize(Array(2,4,1))
+val y= x.max
+println(x.collect().mkString(&quot;, &quot;))
+println(y)
+
+//sum - Return the sum of the items in the RDD
+val x= sc.parallelize(Array(2,4,1))
+val y= x.sum
+println(x.collect().mkString(&quot;, &quot;))
+println(y)
+
+//mean - Return the mean of the items in the RDD
+val x= sc.parallelize(Array(2,4,1))
+val y= x.mean
+println(x.collect().mkString(&quot;, &quot;))
+println(y)
+
+
+
+
+
+
