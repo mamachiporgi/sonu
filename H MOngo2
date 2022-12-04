@@ -1,0 +1,212 @@
+Exercise: - 1. Student Database
+> show dbs
+admin     0.000GB
+config    0.000GB
+local     0.000GB
+student1  0.000GB
+test      0.000GB
+> use student1
+switched to db student1
+> db.student.find()
+{ "_id" : ObjectId("631ee3effbaea433283ec7cf"), "srn" : 1, "sname" : "Hajisab", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.71 }
+{ "_id" : ObjectId("631f0613a980a244a7fb6b22"), "srn" : 2, "sname" : "Sanket", "Degree" : "BCA", "sem" : 6, "CGPA" : 7.5 }
+{ "_id" : ObjectId("631f0624a980a244a7fb6b23"), "srn" : 3, "sname" : "Wajahat", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.5 }
+{ "_id" : ObjectId("631f06daa980a244a7fb6b24"), "srn" : 4, "sname" : "Siddhesh", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.4 }
+{ "_id" : ObjectId("631f0765a980a244a7fb6b25"), "srn" : 5, "sname" : "Omkar", "Degree" : "BCA", "sem" : 6, "CGPA" : 9.1 }
+{ "_id" : ObjectId("631f0790a980a244a7fb6b26"), "srn" : 6, "sname" : "Ajay", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.1 }
+{ "_id" : ObjectId("631f07aca980a244a7fb6b27"), "srn" : 7, "sname" : "Akshay", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.6 }
+{ "_id" : ObjectId("631f07e2a980a244a7fb6b28"), "srn" : 8, "sname" : "Samir", "Degree" : "BCA", "sem" : 6, "CGPA" : 6.9 }
+{ "_id" : ObjectId("631f0818a980a244a7fb6b29"), "srn" : 9, "sname" : "Sunil", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.5 }
+{ "_id" : ObjectId("631f0853a980a244a7fb6b2a"), "srn" : 10, "sname" : "Sanjay", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.6 }
+> db.student.find({Degree:"BCA"})
+{ "_id" : ObjectId("631f0613a980a244a7fb6b22"), "srn" : 2, "sname" : "Sanket", "Degree" : "BCA", "sem" : 6, "CGPA" : 7.5 }
+{ "_id" : ObjectId("631f0765a980a244a7fb6b25"), "srn" : 5, "sname" : "Omkar", "Degree" : "BCA", "sem" : 6, "CGPA" : 9.1 }
+{ "_id" : ObjectId("631f07e2a980a244a7fb6b28"), "srn" : 8, "sname" : "Samir", "Degree" : "BCA", "sem" : 6, "CGPA" : 6.9 }
+> db.student.find().sort({sname:1})
+{ "_id" : ObjectId("631f0790a980a244a7fb6b26"), "srn" : 6, "sname" : "Ajay", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.1 }
+{ "_id" : ObjectId("631f07aca980a244a7fb6b27"), "srn" : 7, "sname" : "Akshay", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.6 }
+{ "_id" : ObjectId("631ee3effbaea433283ec7cf"), "srn" : 1, "sname" : "Hajisab", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.71 }
+{ "_id" : ObjectId("631f0765a980a244a7fb6b25"), "srn" : 5, "sname" : "Omkar", "Degree" : "BCA", "sem" : 6, "CGPA" : 9.1 }
+{ "_id" : ObjectId("631f07e2a980a244a7fb6b28"), "srn" : 8, "sname" : "Samir", "Degree" : "BCA", "sem" : 6, "CGPA" : 6.9 }
+{ "_id" : ObjectId("631f0853a980a244a7fb6b2a"), "srn" : 10, "sname" : "Sanjay", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.6 }
+{ "_id" : ObjectId("631f0613a980a244a7fb6b22"), "srn" : 2, "sname" : "Sanket", "Degree" : "BCA", "sem" : 6, "CGPA" : 7.5 }
+{ "_id" : ObjectId("631f06daa980a244a7fb6b24"), "srn" : 4, "sname" : "Siddhesh", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.4 }
+{ "_id" : ObjectId("631f0818a980a244a7fb6b29"), "srn" : 9, "sname" : "Sunil", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.5 }
+{ "_id" : ObjectId("631f0624a980a244a7fb6b23"), "srn" : 3, "sname" : "Wajahat", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.5 }
+> db.student.find().limit(5)
+{ "_id" : ObjectId("631ee3effbaea433283ec7cf"), "srn" : 1, "sname" : "Hajisab", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.71 }
+{ "_id" : ObjectId("631f0613a980a244a7fb6b22"), "srn" : 2, "sname" : "Sanket", "Degree" : "BCA", "sem" : 6, "CGPA" : 7.5 }
+{ "_id" : ObjectId("631f0624a980a244a7fb6b23"), "srn" : 3, "sname" : "Wajahat", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.5 }
+{ "_id" : ObjectId("631f06daa980a244a7fb6b24"), "srn" : 4, "sname" : "Siddhesh", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.4 }
+{ "_id" : ObjectId("631f0765a980a244a7fb6b25"), "srn" : 5, "sname" : "Omkar", "Degree" : "BCA", "sem" : 6, "CGPA" : 9.1 }
+> db.student.find().skip(4).limit(3)
+{ "_id" : ObjectId("631f0765a980a244a7fb6b25"), "srn" : 5, "sname" : "Omkar", "Degree" : "BCA", "sem" : 6, "CGPA" : 9.1 }
+{ "_id" : ObjectId("631f0790a980a244a7fb6b26"), "srn" : 6, "sname" : "Ajay", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.1 }
+{ "_id" : ObjectId("631f07aca980a244a7fb6b27"), "srn" : 7, "sname" : "Akshay", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.6 }
+> db.student.find()({Degree:1,sname:"Hajisab"})
+uncaught exception: TypeError: db.student.find(...) is not a function :
+@(shell):1:1
+> db.student.find({Degree:1,sname:"Hajisab"})
+> db.student.find({Degree:1,sname:"Hajisab"})
+> db.student.find().sort({CGPA:-1}).skip(4).limit(3)
+{ "_id" : ObjectId("631f0624a980a244a7fb6b23"), "srn" : 3, "sname" : "Wajahat", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.5 }
+{ "_id" : ObjectId("631f0853a980a244a7fb6b2a"), "srn" : 10, "sname" : "Sanjay", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.6 }
+{ "_id" : ObjectId("631f0613a980a244a7fb6b22"), "srn" : 2, "sname" : "Sanket", "Degree" : "BCA", "sem" : 6, "CGPA" : 7.5 }
+> db.student.find({Degree:"BCA"}).count()
+3
+> db.student.find({Degree:"BCA"}).count()
+3
+> db.student.find({Degree:"MCA"}).count()
+7
+> db.student.find({},{_id:0})
+{ "srn" : 1, "sname" : "Hajisab", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.71 }
+{ "srn" : 2, "sname" : "Sanket", "Degree" : "BCA", "sem" : 6, "CGPA" : 7.5 }
+{ "srn" : 3, "sname" : "Wajahat", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.5 }
+{ "srn" : 4, "sname" : "Siddhesh", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.4 }
+{ "srn" : 5, "sname" : "Omkar", "Degree" : "BCA", "sem" : 6, "CGPA" : 9.1 }
+{ "srn" : 6, "sname" : "Ajay", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.1 }
+{ "srn" : 7, "sname" : "Akshay", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.6 }
+{ "srn" : 8, "sname" : "Samir", "Degree" : "BCA", "sem" : 6, "CGPA" : 6.9 }
+{ "srn" : 9, "sname" : "Sunil", "Degree" : "MCA", "sem" : 1, "CGPA" : 8.5 }
+{ "srn" : 10, "sname" : "Sanjay", "Degree" : "MCA", "sem" : 1, "CGPA" : 7.6 }
+> db.student.distinct("Degree")
+[ "BCA", "MCA" ]
+> db.student.find(Degree:"BCA",{CGPA:{$gt:6, $lt:7.5}})
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:22
+> db.student.find({Degree:"BCA",CGPA:{$gt:6, $lt:7.5}})
+{ "_id" : ObjectId("631f07e2a980a244a7fb6b28"), "srn" : 8, "sname" : "Samir", "Degree" : "BCA", "sem" : 6, "CGPA" : 6.9 }
+> db.student.find({{$and:[{Degree:"BCA"},{sem:6}]})
+
+Exercise :-2 Employee database
+> show dbs
+admin       0.000GB
+config      0.000GB
+employeedb  0.000GB
+local       0.000GB
+student1    0.000GB
+test        0.000GB
+> use employee
+switched to db employee
+> db.employee.insert({eid:9,ename:"Parnika",dept:"Production",desig:"Developer",salary:37000,yoj:2018,address:{dno:54,street:2,locality:"MIDC",city:"Pune"}})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:10,ename:"Saurabh",dept:"Production",desig:"Developer",salary:38000,yoj:2018,address:{dno:84,street:5,locality:"MIDC",city:"Mumbai"}})
+WriteResult({ "nInserted" : 1 })
+> db.employee.find({salary:{$gt:50000,$lt:75000}})
+> use employeedb
+switched to db employeedb
+> db.employee.insert({eid:9,ename:"Parnika",dept:"Production",desig:"Developer",salary:37000,yoj:2018,address:{dno:54,street:2,locality:"MIDC",city:"Pune"}})
+WriteResult({ "nInserted" : 1 })
+> db.employee.insert({eid:10,ename:"Saurabh",dept:"Production",desig:"Developer",salary:38000,yoj:2018,address:{dno:84,street:5,locality:"MIDC",city:"Mumbai"}})
+WriteResult({ "nInserted" : 1 })
+> db.employee.find({salary:{$gt:50000,$lt:75000}})
+{ "_id" : ObjectId("63200fcb662f322e1d10c298"), "eid" : 5, "ename" : "Omkar", "dept" : "IT", "desig" : "Tester", "salary" : 54000, "yoj" : 2015, "address" : { "dno" : 74, "street" : 4, "locality" : "Thane", "city" : "Mumbai" } }
+> db.employee.find({desig:"Developer"})
+{ "_id" : ObjectId("63200d7c662f322e1d10c294"), "eid" : 1, "ename" : "Rahul", "dept" : "IT", "desig" : "Developer", "salary" : 30000, "yoj" : 2015, "address" : { "dno" : 397, "street" : 2, "locality" : "maruti mandir", "city" : "Ratnagiri" } }
+{ "_id" : ObjectId("63200eb7662f322e1d10c296"), "eid" : 3, "ename" : "Sachin", "dept" : "IT", "desig" : "Developer", "salary" : 33000, "yoj" : 2016, "address" : { "dno" : 284, "street" : 7, "locality" : "Dombivali", "city" : "Mumbai" } }
+{ "_id" : ObjectId("63201185c345db25660bfdb2"), "eid" : 8, "ename" : "Ketan", "dept" : "Production", "desig" : "Developer", "salary" : 38000, "yoj" : 2014, "address" : { "dno" : 154, "street" : 2, "locality" : "pune", "city" : "Pune" } }
+{ "_id" : ObjectId("6320136081c7664c72267926"), "eid" : 9, "ename" : "Parnika", "dept" : "Production", "desig" : "Developer", "salary" : 37000, "yoj" : 2018, "address" : { "dno" : 54, "street" : 2, "locality" : "MIDC", "city" : "Pune" } }
+{ "_id" : ObjectId("6320136481c7664c72267927"), "eid" : 10, "ename" : "Saurabh", "dept" : "Production", "desig" : "Developer", "salary" : 38000, "yoj" : 2018, "address" : { "dno" : 84, "street" : 5, "locality" : "MIDC", "city" : "Mumbai" } }
+> db.employee.find({ename:"Ketan"},{"address.city":1})
+{ "_id" : ObjectId("63201185c345db25660bfdb2"), "address" : { "city" : "Pune" } }
+> db.employee.find({ename:"Hajisab"},{salary:1})
+{ "_id" : ObjectId("63201016662f322e1d10c299"), "salary" : 40000 }
+> db.employee.find({ename:"Ketan"},{"address.city":1})
+{ "_id" : ObjectId("63201185c345db25660bfdb2"), "address" : { "city" : "Pune" } }
+> db.employee.find({ename:"Hajisab"},{"address.city":1})
+{ "_id" : ObjectId("63201016662f322e1d10c299"), "address" : { "city" : "Ratnagiri" } }
+> db.employee.update({desig:"Developer"},{$inc:{"salary":5000}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.update({ename:"Hajisab"},{$set:{age:"24"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.update({ename:"Hajisab"},{$unset:{yoj:1}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.update({ename:"Hajisab"},{$pushAll:{projects:["p2","p3"]}})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "Unknown modifier: $pushAll. Expected a valid update modifier or pipeline-style update specified as an array"
+        }
+})
+> db.employee.update({ename:"Hajisab"},{$pushAll:{projects:["p1"]}})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "Unknown modifier: $pushAll. Expected a valid update modifier or pipeline-style update specified as an array"
+        }
+})
+> db.employee.update({ename:"Hajisab"},{$pushAll:{projects:["p2","p3"]}})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "Unknown modifier: $pushAll. Expected a valid update modifier or pipeline-style update specified as an array"
+        }
+})
+> db.employee.update({ename:"Hajisab"},{$push:{projects:["p1"]}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.update({ename:"Hajisab"},{$pushAll:{projects:["p2","p3"]}})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "Unknown modifier: $pushAll. Expected a valid update modifier or pipeline-style update specified as an array"
+        }
+})
+> db.employee.update({ename:"Hajisab"},{$pushAll:{projects:["p2","p3"]}})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "Unknown modifier: $pushAll. Expected a valid update modifier or pipeline-style update specified as an array"
+        }
+})
+> db.employee.update({ename:"Sanket"},{$push:{projects:["p1"]}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.update({ename:"Sanket"},{$pushAll:{projects:["p2","p3"]}})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "Unknown modifier: $pushAll. Expected a valid update modifier or pipeline-style update specified as an array"
+        }
+})
+> db.employee.update({ename:"Hajisab"},{$push:{projects:["p2"]}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.update({ename:"Hajisab"},{$push:{projects:["p3"]}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.update({ename:"Hajisab"},{$pull:{projects:["p3"]}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.update({ename:"Hajisab"},{$push:{contacts:{phone:"9586254747",email:"sanket546@gmail.com"}}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.employee.update({ename:"Hajisab"},{$addTSet:{"contact.phone":[9857842535,6597923625]}})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "Unknown modifier: $addTSet. Expected a valid update modifier or pipeline-style update specified as an array"
+        }
+})
+> db.employee.update({ename:"Hajisab"},{$addToSet:{"contact.phone":[9857842535,6597923625]}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+db.employee.updateMany({ename:"Hajisab"},{$addToSet:{"contact.phone":[9857842535,6597923625]}})
+
+> db.employee.deleteOne({ename:"Hajisab"},{$addToSet:{"contact.phone":[9857842535,6597923625]}})
+> db.employee.deleteMany({ename:"Hajisab"},{$addToSet:{"contact.phone":[9857842535,6597923625]}})
+
