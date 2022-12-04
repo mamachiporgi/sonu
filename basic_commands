@@ -1,0 +1,102 @@
+#HADOOP NOTES
+
+#Note : open command prompt as administrator
+
+Hue
+Spark
+Pig
+
+#Practical 1 HDFS Commands
+
+Hdfs Commands - create,run  
+-start hadoop 
+
+#steps to start hadoop 
+-open cmd as admin
+-start-dfs
+-start-yarn (Node manager and resource will start)
+-after that run hdfs commands
+
+commands :-
+-hdfs dfs -ls / - (List files)
+-copy from to copy files 
+-hdfs dfs -mkdir /filename - (Make directory)
+
+#Pig or Spark practical
+
+#Spark:-
+
+Steps :-
+start haddop by writing following commands - 
+-start-dfs
+-start-yarn
+
+
+#Command To start spark shell 
+-spark -shell (This command open scala prompt to run RDD commands)
+
+#Commands to create a RDD
+
+#To quit spark shell
+:quit
+
+#Pig :-
+
+To start pig
+-start hadoop if not started
+-pix -x local (Grunt shell will open,run pig commands in grunt shell)
+
+#Pig Operations
+-create file comma separated
+
+#To quit Grunt
+quit
+exit to return cmd
+
+#Stop Hadoop file system
+-stop yarn
+-stop dfs
+
+
+#HIVE 
+Online Compiler - hue Complier
+username - demo
+password - demo
+
+
+#Go to editor > Hive > Hive Propmt will start > Excute Hive commands
+#Work on default db
+
+#Importer to use csv file or xml file
+
+#MongoDb
+
+#Path for mongodb (to run mongo ,if shoertcut not available)
+#C > Program Files > MongoDb > Server > 5.0 > bin > (Run mongo file , it will open mongo shell)
+
+
+#mongo commands
+-create collections;
+-show databases;
+
+#TABLEAU
+
+-search tableau public datasets (Superstore sales)
+
+#Tableau Public 
+
+#Drag and drop order > click on sheet > Drag and drop coloumns and row as given to generate graphs
+
+
+#Viva (Refer File)
+
+-pig
+-spark
+-hive
+-difference between hive and sql
+-what is haddop
+-what is hdfs
+-what is datanode,resource manager etc
+-Types of transformation
+-What is nosql
+-Adv and DisAdv of mongo
