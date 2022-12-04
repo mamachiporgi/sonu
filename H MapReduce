@@ -1,0 +1,60 @@
+//cmd -run as admin
+
+//copy the path of hadoop sbin folder
+cd C:\haddop-3.2.2\sbin  if its in d then cd /d D:\haddop-3.2.2\sbin
+
+//now start dfs and yarn
+
+start-dfs
+
+start-yarn
+
+jps
+
+//use this command to create a directory with name inp
+hadoop fs -mkdir /inp              use 2 times
+
+//create a data.txt file
+
+//inside data.txt 
+//some words or paragraph
+
+//copy path of data.txt
+
+//now move data.txt file to the inp folder
+
+hadoop fs -put d:/data.txt /tnp
+
+//lets check the moved file
+
+hadoop fs -ls /inp/
+
+hadoop dfs -cat /inp/data.txt
+
+
+//copy the jar file path   copy as path
+hadoop jar  \hadoop-mapreduce-exapmles-3.2.2.jar wordcount /inp/output
+
+//check the output folder now 
+
+hadoop fs -cat /output/*
+
+//alternatively you can see the localhost:9870 for the output or file system
+ 
+localhost:9870/dfshealth.html#tab-overview
+
+click on utilities 
+click on browse the file system
+
+click on inp and data.txt and download
+
+click on output and part-r-0000 and download
+
+
+jps
+
+stop-yarn
+
+stop-dfs
+quit 
+exit
