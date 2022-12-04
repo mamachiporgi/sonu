@@ -1,0 +1,29 @@
+// cmd -run as admin
+
+spark-shell
+
+//make variable and give the path our wordCount file
+
+val text = sc.textFile("C:/data.txt")
+
+//command to collect the text
+text.collect;
+
+//command to split the words by command 
+val counts = test.flatMap(line => line.split(" "))
+  
+counts.collect
+  
+//command to place the (1) for every word
+val mapf = counts.map(word => (word,1))
+
+mapf.collect
+
+//command to add the keys of same words
+val reducef = mapf.reduceByKey(_+_)
+
+reducef.collect
+
+//use this command to save the output in c drive
+
+reducef.saveAsTextFile("C:/spark_outpu
