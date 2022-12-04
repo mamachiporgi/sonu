@@ -26,4 +26,4 @@ reducef.collect
 
 //use this command to save the output in c drive
 
-reducef.saveAsTextFile("C:/spark_outpu
+reducef.saveAsTextFile("C:/spark_output")
