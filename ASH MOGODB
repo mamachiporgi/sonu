@@ -1,0 +1,11 @@
+show dbs;  --showing databases
+
+show collections;  --showing tables
+
+db.createcollection("student")    ----for creating student table
+
+db.student.insertone({name:"abc",rollno:01,address:"pune"});   --inserting values in student table
+
+db.Student.find()  --showing values in table
+
+db.Student.find().pretty()  --for organise data
