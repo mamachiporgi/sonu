@@ -1,0 +1,46 @@
+(practical 01)
+1.Develop a JAVA program for multi-client chat server.
+
+2.Write a java program to implement mutual exclusion using Token ring algorithm.
+UDPChatClient2.java
+
+(practical 02)
+
+1)Write a java program to implement a Server calculator using RPC concept. (Make use of
+datagram)
+
+2) Write a java to implement a Date Time Server using RPC concept. (Make use of datagram)
+
+(practical 03)
+
+1.Design a Graphical User Interface (GUI) based calculator. (scientific or standard). Operations
+should be performed using both mouse and keyboard.
+
+2.Retrieve day, time and date function from server to client. This program should display server
+day, date and time
+
+3.Equation solver. The client should provide an equation to the server through an interface. The
+server will solve the expression given by the client. (a-b)2 = a2 –2ab + b2;
+If a = 5 and b = 2 then return value = 52 – 2*5*2 + 22 = 9.
+
+(practical 04)
+
+1) Using MySQL create Library database. Create table Book (Book_id, Book_name,
+Book_author) and retrieve the Book information from Library database using Remote Object
+Communication concept.
+
+2) Using MySQL create Electric_Bill database. Create table Bill (consumer_name, bill_due_date,
+bill_amount) and retrieve the bill information from the Electric_Bill database using Remote
+Object Communication concept.
+
+(practical 05)
+1. Write a java program to access the files from your Google drive account and read and write
+the file contents from your program.
+
+Practical 06
+
+1. Write a java program using Google App Engine for checking entered number is Odd or Even.
+Project Explorer is as follows –
+
+2.Write a java program using Google App Engine for checking entered number is Prime or not.
+Project Explorer is as follows –
