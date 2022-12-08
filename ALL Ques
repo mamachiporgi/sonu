@@ -1,0 +1,123 @@
+///////////////////////////////////////PRACT 1
+
+TESTCASES ……
+
+///////////////////////////////////////PRACT 2
+
+1. Write a selenium script to use css locators to find elements on the following webpage https://demoqa.com/automation-practice-form
+
+2. Write a selenium script to find elements on http://demo.guru99.com/test/newtours/ using id,name, link, partial link locators.
+
+3. Write a selenium script to login to http://demo.guru99.com/test/login.html . Use name and ID locator strategy to locate elements.
+
+4. Write a script to locate elements on https://demo.guru99.com/test/selenium-xpath.html using xpath.
+
+///////////////////////////////////////PRACT3
+
+1. Locate all elements with tagname “input” on the given website http://demo.guru99.com/test/facebook.html
+
+2. Locate all elements with classname “inputtext” on the given website http://demo.guru99.com/test/facebook.html
+
+//////////////////////////////PRACT4
+
+1. Write a selenium script to navigate to https://www.toolsqa.com/selenium-training/ website and perform following actions-1)Click on Registration button link,2) Come back to Home page (Use 'Back' command), 3)Again goback to Registration page (This time use 'Forward' command), 4) Again come back to Home page (This time use 'To' command), 5) Refresh the Browser (Use 'Refresh' command)
+
+2. Automate the following test scenarios: a) Invoke firefox Browser b) Open URL: https://www.google.co.in/ c) Get Page Title name and Title length d) Print Page Title and Title length on the Eclipse Console e) Get page URL and verify whether it is the desired page or not f) Get page Source and Page Source length g) Print page Length on Eclipse Console. h) Close the Browser
+
+ 
+
+ 
+
+//////////////////////////////PRACT5
+
+1.Open “flight_reservation.html” and write a script to handle frames and print heading of page in each frame.
+
+2. Open https://demoqa.com/browser-windows and write a script to handle multiple windows that opens after clicking button “New Window” and print the heading on that new window.
+
+3. Open “flight_reservation.html” and write a script to handle popup window that opens after clicking on “Hotels” Hyperlink and print title of the popup window and heading on that page.
+
+4. Open “hotel_search.html” page and handle modals that appear after clicking on buttons on that webpage.
+
+ 
+
+ 
+
+ 
+
+//////////////////////////////PRACT 6
+
+1. Write a selenium script to handle alert on http://only-testingblog.blogspot.com/2013/09/test.html.
+
+2. Write a selenium script to handle alerts on https://demoqa.com/alerts
+
+3. Write a selenium script to handle alert on http://demo.guru99.com/test/simple_context_menu.html
+
+4. Open “train_reservation.html” page and handle the alerts on that page
+
+ 
+
+//////////////////////////////PRACT 7
+
+1. Write a selenium script for following scenario on http://only-testingblog.blogspot.com/2013/09/test.html
+
+2. Write a selenium script to handle radio and checkboxes on following webpage http://demo.guru99.com/test/radio.html. Print the status of radio buttons i.e whether the radio button is selected or not.
+
+3. Write a selenium script to select options from dropdown list on http://jsbin.com/osebed/2 using VisibleText, Value, Index and check whether you can select multiple options
+
+4. Write a selenium script to Browse to https://in.ebay.com/ website. Enter a product in the search box on the homepage (say Apple Watches). From categories dropdown, select category of your product (say Electronics). Click the Search button. Print the result of the product
+
+//////////////////////////////PRACT 8
+
+1. Write a selenium script to take screenshot of http://demo.guru99.com/test/newtours/index.php
+
+2. Write a selenium script to demonstrate explicit and implicit waits on https://demoqa.com/alerts
+
+//////////////////////////////PRACT 9
+
+1.Write a selenium script to move tile3 to the position of tile2 on Sortable.html
+
+2. Write a selenium script to select tile 1, tile 5, tile 11 on Selectable.html
+
+3. Write a selenium script to select tile 3 using moveByOffset() method and select tile 11 using        click on web Element method click() on Selectable.html
+
+4. Write a selenium script to double click and right click the elements on                http://demo.guru99.com/test/simple_context_menu.html
+
+5. Write a selenium script to drag the BANK element and drop on the DEBIT SIDE block through    dragAndDrop method on the following webpage                http://demo.guru99.com/test/drag_drop.html. Use xpath to locate required elements.
+
+6. Write a selenium script to implement drag and drop action on                https://demoqa.com/droppable/
+
+//////////////////////////////PRACT 10
+
+1.Create two TestNg Classes and create and configure TestNG test suite(testng.xml) by adding few test classes to the suite and execute it
+
+2. Create two packages inTestNg project. Each package contains two classes. Create and execute a TestNG test suite(testng.xml) to test a particular test package.
+
+ 
+
+3. Create two packages inTestNg project, each package containing two classes. Each class will contain two test menthods. Create and execute a TestNG test suite(testng.xml) to execute only a particular method from a class.
+
+ 
+
+4. Create two packages inTestNg project, each package containing two classes. Each class will contain two test menthods. Create and execute a TestNG test suite(testng.xml) to include only a first method from each class.
+
+ 
+
+5. Create three packages inTestNg project, each package containing two classes. Each class will contain two test menthods.Create and execute a TestNG test suite(testng.xml) to execute test methods from all the classes present under all the packages excluding those that belong to second package.
+
+//////////////////////////////PRACT 11
+
+ 
+
+1.Create a test class with @BeforeClass/@AfterClass, @BeforeMethod/@AfterMethod annotations and execute it using a testng.xml
+
+2. Create and execute a TestNG class using test annotation on class. The class contains two public methods and one private method.
+
+3. Create TestNG class containing three test methods using test annotation out of which any two methods are enabled and remaining method is disabled. Use appropriate attributes of test annotation.
+
+4. Create a test class with @BeforeSuite/@AfterSuite, @BeforeTest/@AfterTest annotations and execute it using a testng.xml.
+
+5. Create a test class that contains four test methods. Two of which should belong to one group and the remaining two to another group. Create testing.xml file to execute tests in a particular group.
+
+6. Write a test class containing test method that calculates the average marks that awarded by two reviewers prints whether writer is shortlisted if average is >4. The marks are passed as parameters whose values are passed from testing.xml at test level.
+
+7. Write a test class containing test method that prints the value of parameters which are passed from data provider.
